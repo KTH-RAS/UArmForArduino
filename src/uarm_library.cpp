@@ -255,7 +255,7 @@ double uArmClass::analog_to_angle(int input_analog, byte servo_num, boolean with
         double slope = 0.0f;
         read_linear_offset(servo_num, intercept, slope);
         double angle = intercept + slope*input_analog;
-        return withOffset ? angle + read_servo_offset(servo_num) : angle;
+        return withOffset ? angle - read_servo_offset(servo_num) : angle;
 }
 
 /*!
